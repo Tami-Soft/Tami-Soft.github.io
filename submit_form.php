@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Adresse e-mail de destination
-    $to = "contact@votresociete.com"; // Remplacez par votre adresse email
+    $to = "prodev@net-c.fr"; // Remplacez par votre adresse email
     $subject = "Nouveau message de $name";
     $body = "Nom: $name\nEmail: $email\nMessage:\n$message";
 
@@ -32,4 +32,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p>Désolé, une erreur s'est produite lors de l'envoi de votre message.</p>";
     }
 }
+
 ?>
