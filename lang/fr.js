@@ -36,5 +36,7 @@ const translations_fr = {
     "telephone": "Téléphone",
     "email": "Email",
     "droits_reserves": "© 2025 T@miSoft. Tous droits réservés.",
-    "logo_alt": "Logo de la société T@miSoft"
+    "logo_alt": "Logo de la société T@miSoft",
+    "Merci": "Merci !!",
+    "MerciMsg": "Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais."
 };

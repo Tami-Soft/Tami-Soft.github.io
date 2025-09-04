@@ -36,5 +36,7 @@ const translations_nl = {
     "telephone": "Telefoon",
     "email": "E-mail",
     "droits_reserves": "© 2025 T@miSoft. Alle rechten voorbehouden.",
-    "logo_alt": "Logo van T@miSoft"
+    "logo_alt": "Logo van T@miSoft",
+    "Merci": "Bedankt !!",
+    "MerciMsg": "Uw bericht is succesvol verzonden. Wij zullen u zo spoedig mogelijk antwoorden."
 };
