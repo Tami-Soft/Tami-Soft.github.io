@@ -96,35 +96,46 @@
         <h2 class="animate__animated animate__fadeIn" data-translate="nos_logiciels">Nos Logiciels</h2>
         <div class="logiciel-grid">
             <div class="logiciel-card animate__animated animate__fadeInLeft animate__delay-1s">
-                <img src="images/2LL.png" alt="Logiciel de Gestion">
+                <img src="images/Yy.jpeg" alt="Logiciel de Gestion">
                 <h3 data-translate="logiciel_gestion_pdv">Gestion de Points de Vente</h3>
                 <p data-translate="logiciel_gestion_pdv_description">Notre logiciel de gestion de points de vente vous offre une solution complète pour piloter votre activité commerciale. Suivi des ventes, gestion des stocks, analyse des performances, fidélisation de la clientèle : tout est intégré.</p>
             </div>
             <div class="logiciel-card animate__animated animate__fadeInRight animate__delay-2s">
-                <img src="images/2LL.png" alt="Logiciel d'Impression">
+                <img src="images/Xx.jpeg" alt="Logiciel d'Impression">
                 <h3 data-translate="logiciel_impression">Logiciels d'Impression</h3>
                 <p data-translate="logiciel_impression_description">Simplifiez vos tâches d'impression avec nos logiciels intuitifs et performants. Créez des étiquettes personnalisées, gérez vos modèles d'impression et automatisez vos flux de travail.</p>
             </div>
         </div>
     </section>
 
-
-
-
     <!-- Section Contact -->
     <section id="contact">
         <h2 class="animate__animated animate__fadeIn" data-translate="contactez_nous_titre">Contactez-nous</h2>
         <div class="contact-form animate__animated animate__fadeInUp animate__delay-1s">
-            <form action="submit_form.php" method="post">
-                <input type="text" name="name" placeholder="Votre nom" required>
+            
+            <!-- ===== DÉBUT DE L'INTÉGRATION FORMSUBMIT.CO ===== -->
+            <!-- REMPLACEZ "votre-email@domaine.com" PAR VOTRE VRAIE ADRESSE EMAIL -->
+            <form action="https://formsubmit.co/tamisoftit@gmail.com" method="POST">
+                
+                <!-- Champ pour la redirection vers la page de remerciement. -->
+                <!-- Assurez-vous que le fichier merci.html est bien sur votre site -->
+                <input type="hidden" name="_next" value="https://www.tamisoft.be/merci.html">
+
+                <!-- Sujet de l'email que vous recevrez -->
+                <input type="hidden" name="_subject" value="Nouveau message depuis le site T@miSoft">
+
+                <!-- Désactiver le Captcha (non recommandé, mais possible) -->
+                <!-- <input type="hidden" name="_captcha" value="false"> -->
+
+                <input type="text" name="nom" placeholder="Votre nom" required>
                 <input type="email" name="email" placeholder="Votre email" required>
                 <textarea name="message" placeholder="Votre message" required></textarea>
+                
                 <button type="submit" data-translate="envoyer">Envoyer</button>
             </form>
-
+            <!-- ===== FIN DE L'INTÉGRATION FORMSUBMIT.CO ===== -->
+            
         </div>
-
-
     </section>
 
     <!-- Footer -->
@@ -132,56 +143,35 @@
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="images/Logo.webp" alt="Logo de la société T@miSoft">
-
                 <a href='www.tamisoft.be'></a> <br>
-          
-
-                <div align='center'>            <a href="#accueil" target="_blank">
-                <img src="https://hitwebcounter.com/counter/counter.php?page=19134048&style=0010&nbdigits=7&type=ip&initCount=2860" title="Total Website Hits" Alt="Web Hits"   border="0" />
-            </a><br /></div>
-
-
-
+                <div align='center'>            
+                    <a href="#accueil" target="_blank">
+                        <img src="https://hitwebcounter.com/counter/counter.php?page=19134048&style=0010&nbdigits=7&type=ip&initCount=2860" title="Total Website Hits" Alt="Web Hits" border="0" />
+                    </a><br />
+                </div>
             </div>
-             <!-- 
-            <div class="footer-info">
-                <p><i class="fas fa-map-marker-alt"></i> <span data-translate="adresse">Adresse</span>: 123 Rue de l'Innovation, Ville, Pays</p>
-                <p><i class="fas fa-phone"></i> <span data-translate="telephone">Téléphone</span>: +123 456 789</p>
-                <p><i class="fas fa-envelope"></i> <span data-translate="email">Email</span>: contact@votresociete.com</p>
-            </div>
-             -->
             <div class="footer-info">
                 <img src="images/Assist.png" alt="Logo de la société T@miSoft">
-                <h3 >+32(0)123456789</h3>
+                <h3>+32(0)123456789</h3>
             </div>
-
-            
-                
-
-
-
             <div class="footer-info">
-                 <h3 >Windows</h3>
-                <a data-testid="linkElement" href="https://dl.teamviewer.com/download/version_15x/TeamViewerQS.exe?ref=https%3A%2F%2Fwww.teamviewer.com%2Fnl%2Fdownload%2Fprevious-versions%2F" target="_blank" rel="noreferrer noopener" class="j7pOnl"><img fetchpriority="high" sizes="144px" srcset="images/TeamFR.png 1x, images/TeamFR.png 2x" id="img_comp-ki7r6xxa" src="images/TeamFR.png" alt="tamisoft, tamisoft.be, tamisoft.nl, linten, etiketten, ruban,Gespecialiseerd in software, hardware, linten en labelsystemen" style="object-fit:fill" class="BI8PVQ Tj01hh" width="144" height="54"></a>            </div>
+                 <h3>Windows</h3>
+                <a data-testid="linkElement" href="https://dl.teamviewer.com/download/version_15x/TeamViewerQS.exe?ref=https%3A%2F%2Fwww.teamviewer.com%2Fnl%2Fdownload%2Fprevious-versions%2F" target="_blank" rel="noreferrer noopener" class="j7pOnl"><img fetchpriority="high" sizes="144px" srcset="images/TeamFR.png 1x, images/TeamFR.png 2x" id="img_comp-ki7r6xxa" src="images/TeamFR.png" alt="tamisoft, tamisoft.be, tamisoft.nl, linten, etiketten, ruban,Gespecialiseerd in software, hardware, linten en labelsystemen" style="object-fit:fill" class="BI8PVQ Tj01hh" width="144" height="54"></a>            
+            </div>
             <div class="footer-info">
-                 <h3 >MacOS</h3>
+                 <h3>MacOS</h3>
                 <a data-testid="linkElement" href="https://dl.teamviewer.com/download/version_15x/TeamViewerQS.dmg?ref=https%3A%2F%2Fwww.teamviewer.com%2Fen%2Fdownload%2Fmacos%2F" target="_blank" rel="noreferrer noopener" class="j7pOnl"><img fetchpriority="high" sizes="144px" srcset="images/TeamFR.png 1x, images/TeamFR.png 2x" id="img_comp-ki7r6xxa" src="images/TeamFR.png" alt="tamisoft, tamisoft.be, tamisoft.nl, linten, etiketten, ruban,Gespecialiseerd in software, hardware, linten en labelsystemen" style="object-fit:fill" class="BI8PVQ Tj01hh" width="144" height="54"></a> 
             </div>
-
-
             <div class="social-media">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
-                <!--<a href="#"><i class="fab fa-linkedin-in"></i></a>-->
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-            
         </div>
-        <p class="copyright"   data-translate="droits_reserves">© 2028 T@miSoft. Tous droits réservés.</p>
+        <p class="copyright" data-translate="droits_reserves">© 2028 T@miSoft. Tous droits réservés.</p>
     </footer>
 
     <script src="js/script.js"></script>
-
 </body>
 </html>
