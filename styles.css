@@ -1,30 +1,35 @@
+/* ======================================== */
+/*          VARIABLES ET STYLES GLOBAUX    */
+/* ======================================== */
 :root {
-    --primary-color: rgb(19,34,36); 
-    /*--primary-color: rgb(19,34,36);*/
+    --primary-color: rgb(19, 34, 36);
     --secondary-color: #e67e22;
     --text-color: #b9976a;
-    --white-color: rgb(249,165,45);
-    --light-gray: rgb(19,34,36);
+    --white-color: rgb(249, 165, 45);
+    --light-gray: rgb(19, 34, 36);
     --font-family: 'Arial', sans-serif;
 }
 
-/* Général */
+/* Reset de base et défilement fluide */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-family);
-    margin: 20;
-    padding: 20px; /* Ajoute une marge de 20px autour du contenu */
+    margin: 0; /* Important pour éviter les marges par défaut */
+    padding: 20px;
     box-sizing: border-box;
     line-height: 1.6;
     color: var(--text-color);
-    background-image: url("images/fond.jpg"); /* Remplace avec le chemin de ton image */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout l'arrière-plan */
-    background-attachment: fixed; /* Fixe l'image lors du défilement */
+    background-image: url("images/fond.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 h1, h2, h3 {
-    /*color: var(--primary-color);*/
-    color:  #e67e22;
+    color: var(--secondary-color);
 }
 
 a {
@@ -32,11 +37,13 @@ a {
     color: inherit;
 }
 
-/* Header */
+/* ======================================== */
+/*          HEADER ET NAVIGATION           */
+/* ======================================== */
 header {
     background-color: var(--primary-color);
     color: var(--white-color);
-    padding: 20px;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,7 +54,7 @@ header {
 }
 
 header .logo img {
-    height: 70px;
+    height: 60px; /* Légèrement réduit pour mieux s'adapter */
 }
 
 nav ul {
@@ -64,52 +71,89 @@ nav ul li {
 nav ul li a {
     color: var(--white-color);
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-/* Hero Section */
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.mobile-menu {
+    display: none; /* Caché par défaut sur les grands écrans */
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.language-flags {
+    display: flex;
+    gap: 10px;
+}
+
+.language-flags img {
+    width: 35px;
+    height: auto;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    border-radius: 4px;
+}
+
+.language-flags img:hover {
+    opacity: 1;
+}
+
+.language-flags img.active {
+    opacity: 1;
+    box-shadow: 0 0 5px var(--secondary-color);
+}
+
+/* ======================================== */
+/*          SECTIONS DU SITE               */
+/* ======================================== */
+
+/* Section Hero (Accueil) */
 .hero {
-    background: url('images/hero-bg.jpg') no-repeat center center/cover;
-    height: 50vh;
+    background: no-repeat center center/cover;
+    height: 60vh; /* Utiliser vh pour la hauteur relative à la fenêtre */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--white-color);
+    padding: 2rem; /* Ajout de padding pour le contenu */
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 30px;
+    max-width: 800px; /* Limite la largeur du texte */
 }
 
 .btn {
     background-color: var(--secondary-color);
-    color: rgb(19, 34, 36);
-    padding: 10px 20px;
+    color: var(--primary-color);
+    padding: 12px 25px;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: darken(var(--secondary-color), 10%);
-}
-.mobile-menu {
-    display: none;
-    cursor: pointer;
+    background-color: #d35400; /* Couleur plus foncée pour le survol */
 }
 
-/* Services Section */
+/* Grilles pour Services, Produits, Logiciels */
 .service-grid, .produit-grid, .logiciel-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* La grille est déjà responsive grâce à auto-fit et minmax ! */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    padding: 20px;
+    padding: 20px 0; /* Padding vertical uniquement */
 }
 
 .service-card, .produit-card, .logiciel-card {
@@ -127,59 +171,76 @@ nav ul li a {
 
 .service-card img, .produit-card img, .logiciel-card img {
     max-width: 100%;
+    height: auto; /* Maintient le ratio de l'image */
     border-radius: 10px;
     margin-bottom: 15px;
 }
 
-/* Contact Section */
+/* Section Contact */
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0;
 }
 
 .contact-form input, .contact-form textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #f4f4f4;
+    color: #333;
+    box-sizing: border-box; /* Important pour que le padding n'augmente pas la largeur */
 }
-.contact-form  textarea {
-    height: 100px;;
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
 }
+
 .contact-form button {
+    width: 100%;
     background-color: var(--secondary-color);
-    color: rgb(19, 34, 36);
-    padding: 10px 20px;
+    color: var(--primary-color);
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-weight: bold;
+    font-size: 1rem;
 }
 
 .contact-form button:hover {
-    background-color: darken(var(--secondary-color), 10%);
+    background-color: #d35400;
 }
 
-/* Footer */
+
+/* ======================================== */
+/*          FOOTER (CORRIGÉ)               */
+/* ======================================== */
 footer {
-    /*background-color: var(--primary-color);*/
-    background-color: rgb(19,34,36);
+    background-color: var(--primary-color);
     color: var(--white-color);
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
     border-radius: 10px;
-    height: 157px;
+    /* La hauteur fixe a été supprimée pour permettre au contenu de s'adapter */
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around; /* Meilleur espacement */
     align-items: center;
     margin-bottom: 20px;
-    
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+    gap: 25px; /* Espace entre les éléments */
+}
+
+.footer-logo, .footer-info {
+    flex: 1; /* Permet aux éléments de prendre une part de l'espace */
+    min-width: 200px; /* Largeur minimale avant de passer à la ligne */
 }
 
 .footer-info p {
@@ -189,7 +250,7 @@ footer {
 .social-media a {
     color: var(--white-color);
     margin: 0 10px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     transition: color 0.3s ease;
 }
 
@@ -200,77 +261,56 @@ footer {
 .copyright {
     margin-top: 20px;
     font-size: 0.9rem;
-    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
 }
 
+/* ======================================== */
+/*          RESPONSIVE (MEDIA QUERIES)     */
+/* ======================================== */
 
-.language-flags {
-    display: flex;
-    gap: 10px;
-}
-.language-flags img {
-    width: 40px;
-    height: auto;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-.language-flags img:hover {
-    opacity: 1;
-}
-.language-flags img.active {
-    opacity: 1;
-    border: 2px solid #007BFF;
-    border-radius: 4px;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 992px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
+/* Pour tablettes et mobiles (moins de 768px) */
 @media screen and (max-width: 768px) {
+    body {
+        padding: 10px; /* Réduire le padding sur les petits écrans */
+    }
+
+    header {
+        flex-wrap: wrap; /* Permet au menu de passer en dessous si nécessaire */
+        justify-content: space-between;
+    }
+
+    /* Affichage du menu burger */
     .mobile-menu {
         display: block;
-        font-size: 1.5rem;
     }
-    
+
+    /* Cacher le menu normal et le styler pour mobile */
     nav ul {
         display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background-color: var(--primary-color);
         flex-direction: column;
-        padding: 20px;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 20px 0;
+        margin-top: 10px;
     }
-    
+
     nav ul.active {
-        display: flex;
+        display: flex; /* Affiche le menu quand il a la classe 'active' */
     }
-    
+
     nav ul li {
         margin: 10px 0;
+        text-align: center;
     }
     
-    .about-container {
-        grid-template-columns: 1fr;
+    .hero-content h1 {
+        font-size: 2rem;
     }
-    
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
-@media screen and (max-width: 576px) {
-    .services-grid {
-        grid-template-columns: 1fr;
+    /* C'est ici que la magie opère pour le footer */
+    .footer-content {
+        flex-direction: column; /* Les éléments se placent en colonne */
+        gap: 30px; /* Augmente l'espace vertical entre les éléments empilés */
     }
 }
