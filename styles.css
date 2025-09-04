@@ -89,7 +89,7 @@ nav ul li a {
 
 .btn {
     background-color: var(--secondary-color);
-    color: var(--white-color);
+    color: rgb(19, 34, 36);
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
@@ -150,12 +150,13 @@ nav ul li a {
 }
 .contact-form button {
     background-color: var(--secondary-color);
-    color: var(--white-color);
+    color: rgb(19, 34, 36);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 .contact-form button:hover {
