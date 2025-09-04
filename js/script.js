@@ -101,12 +101,74 @@ document.querySelectorAll('.language-flags img').forEach(flag => {
 });
 
 // Initialisation au chargement de la page
-document.addEventListener('DOMContentLoaded', initializeLanguage);
+//document.addEventListener('DOMContentLoaded', initializeLanguage);
 
  // Mobile menu toggle
- document.querySelector('.mobile-menu').addEventListener('click', function() {
-    document.querySelector('nav ul').classList.toggle('active');
-});
+// document.querySelector('.mobile-menu').addEventListener('click', function() {
+  //  document.querySelector('nav ul').classList.toggle('active');
+//});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Sélection des éléments globaux
+    const header = document.querySelector('header');
+    const navList = document.querySelector('nav ul');
+
+    // ===============================================
+    // --- GESTION DU MENU DE NAVIGATION MOBILE ---
+    // ===============================================
+    const mobileMenuButton = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    if (mobileMenuButton && navList) {
+        mobileMenuButton.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    }
+
+    if (navLinks.length > 0 && navList) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navList.classList.contains('active')) {
+                    navList.classList.remove('active');
+                }
+            });
+        });
+    }
+
+    // ========================================================
+    // --- NOUVEAU : GESTION DU HEADER AUTO-RÉTRACTABLE ---
+    // ========================================================
+    let lastScrollY = window.scrollY; // Stocke la dernière position de défilement
+
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        // Si on est tout en haut, on montre toujours le header
+        if (currentScrollY <= 100) {
+            header.classList.remove('header-hidden');
+            return;
+        }
+
+        // Détermine la direction du scroll
+        if (currentScrollY > lastScrollY) {
+            // L'utilisateur défile VERS LE BAS : on cache le header
+            header.classList.add('header-hidden');
+            // On ferme aussi le menu mobile s'il est ouvert pendant le scroll
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+            }
+        } else {
+            // L'utilisateur défile VERS LE HAUT : on montre le header
+            header.classList.remove('header-hidden');
+        }
+
+        // Met à jour la dernière position de défilement
+        lastScrollY = currentScrollY;
+    });
+
+
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -121,4 +183,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector('nav ul').classList.remove('active');
     });
 });
-
