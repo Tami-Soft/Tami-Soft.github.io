@@ -41,34 +41,24 @@ function applyTranslations(translations) {
     });
 }
 
-// <<< AJOUT : Nouvelle fonction dédiée à la mise à jour de l'URL du formulaire
+// Mise à jour de l’URL de redirection du formulaire
 function updateFormRedirectUrl(lang) {
     const redirectInput = document.getElementById('redirect-url');
-    // On vérifie si l'élément existe pour éviter les erreurs sur les autres pages
     if (redirectInput) {
-        // Remplacez par l'URL de base de votre site si nécessaire
         const baseUrl = 'https://tami-soft.github.io/merci.html';
         redirectInput.value = `${baseUrl}?lang=${lang}`;
-        console.log(`URL de redirection mise à jour : ${redirectInput.value}`);
     }
 }
 
-// Fonction principale
+// Initialisation de la langue
 async function initializeLanguage() {
     let browserLanguage = detectBrowserLanguage();
-    console.log("Langue détectée du navigateur:", browserLanguage);
-
-    // Vérifie si une langue a été précédemment enregistrée dans localStorage
     let storedLanguage = localStorage.getItem('language');
     let languageToUse = storedLanguage || ((browserLanguage === 'nl') ? 'nl' : 'fr');
-
-    // On retire la ligne concernant le selecteur de langue si vous ne l'utilisez pas
-    // document.getElementById('language-selector').value = languageToUse;
 
     try {
         const translations = await loadTranslations(languageToUse);
         applyTranslations(translations);
-        // <<< AJOUT : Mettre à jour l'URL du formulaire au chargement de la page
         updateFormRedirectUrl(languageToUse);
     } catch (error) {
         console.error("Erreur lors du chargement des traductions :", error);
@@ -78,21 +68,18 @@ async function initializeLanguage() {
 // Gestion du changement de langue via les drapeaux
 document.querySelectorAll('.language-flags img').forEach(flag => {
     flag.addEventListener('click', async function () {
-        const selectedLanguage = this.getAttribute('data-lang'); // Récupère la langue sélectionnée
+        const selectedLanguage = this.getAttribute('data-lang');
 
         try {
-            const translations = await loadTranslations(selectedLanguage); // Charge les traductions
-            applyTranslations(translations); // Applique les traductions
-            // <<< AJOUT : Mettre à jour l'URL du formulaire à chaque changement de langue
+            const translations = await loadTranslations(selectedLanguage);
+            applyTranslations(translations);
             updateFormRedirectUrl(selectedLanguage);
         } catch (error) {
             console.error("Erreur lors du chargement des traductions :", error);
         }
 
-        // Enregistrer la langue sélectionnée dans le localStorage
         localStorage.setItem('language', selectedLanguage);
 
-        // Mettre à jour le drapeau actif (si vous avez un style CSS pour .active)
         document.querySelectorAll('.language-flags img').forEach(img => {
             img.classList.remove('active');
         });
@@ -100,24 +87,33 @@ document.querySelectorAll('.language-flags img').forEach(flag => {
     });
 });
 
-// Initialisation au chargement de la page
+// Initialisation au chargement
 document.addEventListener('DOMContentLoaded', initializeLanguage);
 
- // Mobile menu toggle
- document.querySelector('.mobile-menu').addEventListener('click', function() {
+// Mobile menu toggle
+document.querySelector('.mobile-menu').addEventListener('click', function () {
     document.querySelector('nav ul').classList.toggle('active');
 });
 
-// Smooth scrolling for anchor links
+// Défilement fluide amélioré (scroll sur le <h2> de chaque section)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-        
-        // Close mobile menu if open
+
+        const targetId = this.getAttribute('href').substring(1);
+        const section = document.getElementById(targetId);
+
+        if (section) {
+            const h2 = section.querySelector('h2');
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const offsetTop = (h2 || section).getBoundingClientRect().top + window.scrollY - headerHeight - 20;
+
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
         document.querySelector('nav ul').classList.remove('active');
     });
 });
