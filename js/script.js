@@ -47,7 +47,7 @@ function updateFormRedirectUrl(lang) {
     // On vérifie si l'élément existe pour éviter les erreurs sur les autres pages
     if (redirectInput) {
         // Remplacez par l'URL de base de votre site si nécessaire
-        const baseUrl = 'https://www.tamisoft.be/merci.html';
+        const baseUrl = 'https://tami-soft.github.io/merci.html';
         redirectInput.value = `${baseUrl}?lang=${lang}`;
         console.log(`URL de redirection mise à jour : ${redirectInput.value}`);
     }
@@ -121,3 +121,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector('nav ul').classList.remove('active');
     });
 });
+
