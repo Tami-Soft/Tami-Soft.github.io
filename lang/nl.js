@@ -7,7 +7,8 @@ const translations_nl = {
     "logiciels": "Software",
     "contact": "Contact",
     "hero_title": "Uw Partner in Software- en Printoplossingen",
-    "hero_description": "Bij T@miSoft combineren we innovatie en expertise om u hoogwaardige software- en printoplossingen te bieden.",
+    "hero_description": "Bij T@miSoft combineren we innovatie en expertise om u,",
+    "hero_description1": "hoogwaardige software- en printoplossingen te bieden.",
     "contactez_nous": "Neem contact op",
     "nos_services": "Onze Diensten",
     "logiciels_desktop_mobiles": "Desktop- en Mobiele Software",
@@ -39,4 +40,5 @@ const translations_nl = {
     "logo_alt": "Logo van T@miSoft",
     "Merci": "Bedankt !!",
     "MerciMsg": "Uw bericht is succesvol verzonden. Wij zullen u zo spoedig mogelijk antwoorden."
+
 };
