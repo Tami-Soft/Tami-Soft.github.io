@@ -83,6 +83,7 @@ nav ul li a {
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 30px;
+    margin: 5px 0; /* ajuste la valeur selon l’espace voulu */
 }
 
 .btn {
@@ -281,3 +282,4 @@ section[id] {
         scroll-margin-top: 70px; /* Mobile petit */
     }
 }
+
