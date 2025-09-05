@@ -7,7 +7,8 @@ const translations_fr = {
     "logiciels": "Logiciels",
     "contact": "Contact",
     "hero_title": "Votre Partenaire en Solutions Logicielles et Impression",
-    "hero_description": "Chez T@miSoft, nous combinons innovation et expertise pour vous offrir des solutions logicielles et d'impression de haute qualité.",
+    "hero_description": "Chez T@miSoft, nous combinons innovation et expertise pour vous offrir,",
+    "hero_description1": "des solutions logicielles et d'impression de haute qualité.",
     "contactez_nous": "Contactez-nous",
     "nos_services": "Nos Services",
     "logiciels_desktop_mobiles": "Logiciels Desktop et Mobiles",
@@ -39,4 +40,5 @@ const translations_fr = {
     "logo_alt": "Logo de la société T@miSoft",
     "Merci": "Merci !!",
     "MerciMsg": "Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais."
+
 };
